@@ -1,0 +1,23 @@
+created:
+    - database/factories/ConferenceFactory.php
+    - database/factories/VenueFactory.php
+    - database/factories/SpeakerFactory.php
+    - database/factories/TalkFactory.php
+    - database/migrations/2025_01_19_154437_create_conferences_table.php
+    - database/migrations/2025_01_19_154438_create_venues_table.php
+    - database/migrations/2025_01_19_154439_create_speakers_table.php
+    - database/migrations/2025_01_19_154440_create_talks_table.php
+    - app/Models/Conference.php
+    - app/Models/Venue.php
+    - app/Models/Speaker.php
+    - app/Models/Talk.php
+    - database/seeders/ConferenceSeeder.php
+    - database/seeders/VenueSeeder.php
+    - database/seeders/SpeakerSeeder.php
+    - database/seeders/TalkSeeder.php
+models:
+    User: { name: string, email: string, email_verified_at: 'timestamp nullable', password: string, remember_token: 'string:100 nullable' }
+    Conference: { name: string, city: string, country: string, cp: string, venues: hasMany, speakers: hasMany }
+    Venue: { name: string, descruption: 'longtext nullable', date_start: datetime, date_end: datetime, status: 'pending finished', region: string, seeds: 5 }
+    Speaker: { name: string, email: string, bio: 'longtext nullable', twitter: string, conferences: hasMany, talks: hasMany }
+    Talk: { title: string, description: 'longtext nullable', speackers: hasOne, conferences: hasMany }
